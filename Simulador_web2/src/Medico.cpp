@@ -4,7 +4,8 @@
 #include "../include/Medico.hpp"
 
 Medico::Medico(const std::string& nombre, const std::string& especialidad)
-    : nombre(nombre), especialidad(especialidad) {}
+    : nombre(nombre), especialidad(especialidad) {
+}
 
 const std::string& Medico::getNombre() const {
     return nombre;
@@ -15,5 +16,5 @@ const std::string& Medico::getEspecialidad() const {
 }
 
 void Medico::mostrarInformacion() const {
-    std::cout << "Médico: " << nombre << ", Especialidad: " << especialidad << std::endl;
+    std::cout << "MÃ©dico: " << nombre << ", Especialidad: " << especialidad << std::endl;
 }
