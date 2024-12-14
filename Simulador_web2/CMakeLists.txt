@@ -1,4 +1,4 @@
-﻿# Establecer la versión mínima de CMake requerida
+# Establecer la versión mínima de CMake requerida
 cmake_minimum_required(VERSION 3.10)
 
 # Definir el nombre del proyecto
