@@ -3,17 +3,22 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 class CitaMedica {
 private:
-    int idPaciente;
-    string fecha;
+    int idPaciente;         // ID del paciente asociado a la cita
+    std::string fecha;      // Fecha de la cita
+
 public:
-    CitaMedica(int idPaciente, string fecha);
-    void mostrarCita();
-    int getIdPaciente();
-    string getFecha();
+    // Constructor
+    CitaMedica(int idPaciente, const std::string& fecha);
+
+    // Métodos de acceso
+    int getIdPaciente() const;                  // Retorna el ID del paciente
+    const std::string& getFecha() const;        // Retorna la fecha de la cita
+
+    // Método para mostrar la información de la cita
+    void mostrarInformacion() const;
 };
 
 #endif
