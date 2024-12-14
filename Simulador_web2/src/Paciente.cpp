@@ -2,7 +2,10 @@
 #include "../include/Medico.hpp"
 #include "../include/Paciente.hpp"
 
-Paciente::Paciente(const std::string& nombre, int id) : nombre(nombre), id(id) {}
+
+Paciente::Paciente(const std::string& nombre, int id)
+    : nombre(nombre), id(id) {
+}
 
 int Paciente::getId() const {
     return id;
