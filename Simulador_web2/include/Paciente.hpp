@@ -11,6 +11,7 @@ private:
 
 public:
     Paciente(const std::string& nombre, int id);
+
     int getId() const;
     const std::string& getNombre() const;
     void mostrarInformacion() const;
