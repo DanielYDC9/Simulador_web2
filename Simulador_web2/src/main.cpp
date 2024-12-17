@@ -5,8 +5,6 @@
 #include "../include/Medico.hpp"
 #include "../include/SistemaHospital.hpp"
 
-using namespace std;
-
 void mostrarMenu() {
     std::cout << "\n=== Sistema Hospitalario ===\n";
     std::cout << "1. Agregar paciente\n";
