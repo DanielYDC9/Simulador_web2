@@ -70,3 +70,56 @@ void asignarCita(SistemaHospital& sistema) {
         }
     }
 
+    // Solicitar fecha
+    std::cout << "Ingrese fecha de la cita (YYYY-MM-DD): ";
+    std::getline(std::cin, fecha);
+
+    // Validar que la fecha no esté vacía
+    while (fecha.empty()) {
+        std::cout << "La fecha no puede estar vacía. Intente nuevamente: ";
+        std::getline(std::cin, fecha);
+    }
+
+    sistema.asignarCita(CitaMedica(idPaciente, fecha));
+    std::cout << "Cita asignada correctamente.\n";
+}
+
+int main() {
+    SistemaHospital sistema;
+    int opcion;
+
+    do {
+        mostrarMenu();
+        std::cin >> opcion;
+
+        if (std::cin.fail()) {
+            std::cout << "Entrada inválida. Intente nuevamente.\n";
+            limpiarBuffer();
+            continue;
+        }
+
+        switch (opcion) {
+        case 1:
+            agregarPaciente(sistema);
+            break;
+        case 2:
+            agregarMedico(sistema);
+            break;
+        case 3:
+            asignarCita(sistema);
+            break;
+        case 4:
+            sistema.mostrarDatos();
+            break;
+        case 5:
+            std::cout << "Saliendo del sistema...\n";
+            break;
+        default:
+            std::cout << "Opción no válida. Intente nuevamente.\n";
+            break;
+        }
+    } while (opcion != 5);
+
+    return 0;
+}
+
