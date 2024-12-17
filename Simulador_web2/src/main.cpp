@@ -17,10 +17,24 @@ void mostrarMenu() {
     std::cout << "Seleccione una opción: ";
 }
 
-    cout << "\nMédicos registrados:\n";
-    for (const auto& medico : medicos) {
-        medico.mostrarMedico();
+void agregarPaciente(SistemaHospital& sistema) {
+    std::string nombre;
+    int id;
+
+    std::cout << "Ingrese nombre del paciente: ";
+    std::cin.ignore();
+    std::getline(std::cin, nombre);
+
+    std::cout << "Ingrese ID del paciente: ";
+    while (!(std::cin >> id)) {
+        std::cout << "ID inválido. Intente nuevamente: ";
+        limpiarBuffer();
     }
+
+    sistema.agregarPaciente(Paciente(nombre, id));
+    std::cout << "Paciente agregado correctamente.\n";
+    limpiarBuffer();
+}
 
     cout << "\nCitas programadas:\n";
     for (const auto& cita : citas) {
