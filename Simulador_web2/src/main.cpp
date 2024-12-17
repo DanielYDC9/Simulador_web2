@@ -36,11 +36,37 @@ void agregarPaciente(SistemaHospital& sistema) {
     limpiarBuffer();
 }
 
-    cout << "\nCitas programadas:\n";
-    for (const auto& cita : citas) {
-        cita.mostrarCita();
-    }
 
-    return 0;
+void agregarMedico(SistemaHospital& sistema) {
+    std::string nombre, especialidad;
+
+    std::cout << "Ingrese nombre del médico: ";
+    std::cin.ignore();
+    std::getline(std::cin, nombre);
+
+    std::cout << "Ingrese especialidad del médico: ";
+    std::getline(std::cin, especialidad);
+
+    sistema.agregarMedico(Medico(nombre, especialidad));
+    std::cout << "Médico agregado correctamente.\n";
 }
+
+void asignarCita(SistemaHospital& sistema) {
+    int idPaciente;
+    std::string fecha;
+
+    // Solicitar ID del paciente con validación
+    while (true) {
+        std::cout << "Ingrese ID del paciente para la cita: ";
+        std::cin >> idPaciente;
+
+        if (std::cin.fail()) {
+            std::cout << "ID inválido. Debe ingresar un número entero. Intente de nuevo.\n";
+            limpiarBuffer();
+        }
+        else {
+            std::cin.ignore();  // Limpiar buffer antes de getline
+            break;
+        }
+    }
 
