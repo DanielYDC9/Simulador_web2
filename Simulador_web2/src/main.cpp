@@ -7,27 +7,15 @@
 
 using namespace std;
 
-int main() {
-    // Lista de pacientes, médicos y citas.
-    vector<Paciente> pacientes;
-    vector<Medico> medicos;
-    vector<CitaMedica> citas;
-
-    // Crear pacientes y médicos de ejemplo.
-    pacientes.push_back(Paciente("Juan Perez", 1));
-    pacientes.push_back(Paciente("Maria Lopez", 2));
-
-    medicos.push_back(Medico("Dr. Gomez", "Cardiología"));
-    medicos.push_back(Medico("Dra. Torres", "Pediatría"));
-
-    // Asignar una cita.
-    citas.push_back(CitaMedica(1, "2024-11-20"));
-
-    // Mostrar datos.
-    cout << "Pacientes registrados:\n";
-    for (const auto& paciente : pacientes) {
-        paciente.mostrar_paciente();
-    }
+void mostrarMenu() {
+    std::cout << "\n=== Sistema Hospitalario ===\n";
+    std::cout << "1. Agregar paciente\n";
+    std::cout << "2. Agregar médico\n";
+    std::cout << "3. Asignar cita médica\n";
+    std::cout << "4. Mostrar todos los datos\n";
+    std::cout << "5. Salir\n";
+    std::cout << "Seleccione una opción: ";
+}
 
     cout << "\nMédicos registrados:\n";
     for (const auto& medico : medicos) {
