@@ -5,15 +5,16 @@
 
 class Paciente {
 private:
-    std::string nombre;
     int id;
-    std::string historial_clinico;
+    std::string nombre;
+    std::string historialMedico;
 
 public:
-    Paciente(const std::string& nombre, int id);
+    Paciente(int id, const std::string& nombre, const std:: string& historialMedico = "") ;
 
     int getId() const;
-    const std::string& getNombre() const;
+    std::string getNombre() const;
+    std::string getHistorialMedico() const;
     void mostrarInformacion() const;
 };
 
