@@ -5,14 +5,16 @@
 
 class Medico {
 private:
+    int id;
     std::string nombre;
     std::string especialidad;
 
 public:
-    Medico(const std::string& nombre, const std::string& especialidad);
+    Medico(int id, const std::string& nombre, const std::string& especialidad);
 
-    const std::string& getNombre() const;
-    const std::string& getEspecialidad() const;
+    int getId() const;
+    std::string getNombre() const;
+    std::string& getEspecialidad() const;
     void mostrarInformacion() const;
 };
 
