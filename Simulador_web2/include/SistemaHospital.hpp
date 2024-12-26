@@ -5,27 +5,36 @@
 #include "../include/Medico.hpp"
 #include "../include/CitaMedica.hpp"
 #include <vector>
+#include <string>
 
 class SistemaHospital {
 private:
-    std::vector<Paciente> pacientes;  // Lista de pacientes registrados
-    std::vector<Medico> medicos;      // Lista de médicos registrados
-    std::vector<CitaMedica> citas;    // Lista de citas médicas programadas
+    std::vector<Paciente> pacientes;  
+    std::vector<Medico> medicos;      
+    std::vector<CitaMedica> citas;
+
+    void cargarPacientes();
+    void cargarMedicos();
+    void cargarCitas();
+    void guardarPacientes() const;
+    void guardarMedicos() const;
+    void guardarCitas() const;
 
 public:
-    // Métodos para gestionar el sistema
-    void agregarPaciente(const Paciente& paciente);
-    void agregarMedico(const Medico& medico);
-    void asignarCita(const CitaMedica& cita);
+    SistemaHospital();
+    ~SistemaHospital();
 
-    // Métodos de acceso
-    const std::vector<Paciente>& getPacientes() const;  // Obtener lista de pacientes
-    std::vector<Paciente>& getPacientes();              // Obtener lista de pacientes para modificar
-    const std::vector<Medico>& getMedicos() const;      // Obtener lista de médicos
-    std::vector<Medico>& getMedicos();                  // Obtener lista de médicos para modificar
+    void agregarPaciente();
+    void agregarMedico();
+    void asignarCita();
+    void mostrarPacientes() const;
+    void mostrarMedicos() const;
+    void mostrarCitas() const;
 
-    // Método para mostrar todos los datos registrados
-    void mostrarDatos() const;
+    void guardarDatos();
+    bool existePaciente(int id) const;
+    bool existeMedico(int id) const;
+
 };
 
 #endif
