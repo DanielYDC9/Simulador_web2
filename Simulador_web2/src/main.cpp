@@ -5,13 +5,12 @@
 #include "../include/Medico.hpp"
 #include "../include/SistemaHospital.hpp"
 
-void mostrarMenu() {
+void mostrarMenuPrincipal() {
     std::cout << "\n=== Sistema Hospitalario ===\n";
-    std::cout << "1. Agregar paciente\n";
-    std::cout << "2. Agregar médico\n";
-    std::cout << "3. Asignar cita médica\n";
-    std::cout << "4. Mostrar todos los datos\n";
-    std::cout << "5. Salir\n";
+    std::cout << "1. Gestión de Pacientes\n";
+    std::cout << "2. Gestión de Médicos\n";
+    std::cout << "3. Gestión de Citas\n";
+    std::cout << "4. Guardar y Salir\n";
     std::cout << "Seleccione una opción: ";
 }
 
