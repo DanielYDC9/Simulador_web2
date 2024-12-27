@@ -16,7 +16,7 @@ public:
     // Métodos de acceso
     int getIdPaciente() const;  // Retorna el ID del paciente
     int getIdMedico() const // Retorna el ID del Medico
-    std::string& getFecha() const;        // Retorna la fecha de la cita
+    std::string getFecha() const;        // Retorna la fecha de la cita
     std::string getMotivo() const;  // Devuelve el motivo de cita medica
 
     // Método para mostrar la información de la cita
