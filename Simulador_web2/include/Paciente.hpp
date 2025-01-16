@@ -2,20 +2,29 @@
 #define PACIENTE_HPP
 
 #include <string>
+#include <vector>
 
 class Paciente {
 private:
-    int id;
+    std::string id;
     std::string nombre;
-    std::string historialMedico;
+    int edad;
+    std::vector<std::string> historialClinico;;
 
 public:
-    Paciente(int id, const std::string& nombre, const std:: string& historialMedico = "") ;
+    Paciente(const std::string& id, const std::string& nombre, int edad) ;
 
-    int getId() const;
+    std::string getId() const;
     std::string getNombre() const;
-    std::string getHistorialMedico() const;
+    int getEdad() const;
+
+    void setNombre(const std::string& nuevoNombre);
     void mostrarInformacion() const;
+    void agregarEntradaHistorial(const std::string& entrada);
+    void mostrarHistorial() const;
+
+    void eliminarPacientePorId(std::vector<Paciente>& pacientes, const std::string& idBuscado);
+    void buscarPacientePorId(const std::vector<Paciente>& pacientes, const std::string& idBuscado);
 };
 
 #endif
