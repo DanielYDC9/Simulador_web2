@@ -5,22 +5,23 @@
 
 class CitaMedica {
 private:
-    int idPaciente;  
-    int idMedico;
-    std::string fecha;      // Fecha de la cita
+    std::string idCita;
+    std::string idPaciente;
+    std::string idMedico;
+    std::string fecha;     
     std::string motivo;
 public:
-    // Constructor
-    CitaMedica(int idPaciente, int idMedico, const std::string& fecha, const std::string& motivo);
+    CitaMedica(const std::string&idCita,const std::string& idPaciente, const std::string& idMedico, const std::string& fecha, const std::string& motivo);
 
-    // Métodos de acceso
-    int getIdPaciente() const;  // Retorna el ID del paciente
-    int getIdMedico() const; // Retorna el ID del Medico
-    std::string getFecha() const;        // Retorna la fecha de la cita
-    std::string getMotivo() const;  // Devuelve el motivo de cita medica
+    std::string getIdCita() const;
+    std::string getIdPaciente() const; 
+    std::string getIdMedico() const; 
+    std::string getFecha() const;        
+    std::string getMotivo() const;  
 
-    // Método para mostrar la información de la cita
+    void setFecha(const std::string& nuevaFecha);
+    void setMotivo(const std::string& nuevoMotivo);
+
     void mostrarInformacion() const;
 };
-
 #endif
