@@ -1,9 +1,17 @@
 #include "../include/SistemaHospital.hpp"
-#include <iostream>
+#include <fstream>
+#include <sstream>
 
-void SistemaHospital::agregarPaciente(const Paciente& paciente) {
-    pacientes.push_back(paciente);
-    std::cout << "Paciente agregado: " << paciente.getNombre() << "\n";
+SistemaHospital::SistemaHospital() {
+    cargarDatos();
+}
+
+SistemaHospital::~SistemaHospital() {
+    guardarDatos();
+}
+
+void SistemaHospital::agregarPaciente(const std::string& id, const std::string& nombre, int edad) {
+    pacientes.emplace_back(id, nombre, edad);
 }
 
 // Agregar un médico al sistema
