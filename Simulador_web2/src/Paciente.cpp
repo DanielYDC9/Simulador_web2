@@ -21,3 +21,15 @@ void Paciente::mostrarInformacion() const {
     std::cout << "Edad: " << edad << " años\n";
     std::cout << "===============================\n";
 }
+
+void Paciente::agregarEntradaHistorial(const std::string& entrada) {
+    historialClinico.push_back(entrada);
+    std::cout << "Entrada agregada al historial clínico.\n";
+}
+
+void Paciente::mostrarHistorial() const {
+    std::cout << "Historial clínico de " << nombre << " (ID: " << id << "):\n";
+    for (int i = 0; i < historialClinico.size(); i++) {
+        std::cout << "- " << historialClinico[i] << "\n";
+    }
+}
