@@ -19,11 +19,14 @@ pacientes.erase(std::remove_if(pacientes.begin(), pacientes.end(),
     [&id](const Paciente& paciente) { return paciente.getId() == id; }), pacientes.end());
 }
 
-// Asignar una cita médica al sistema
-void SistemaHospital::asignarCita(const CitaMedica& cita) {
-    citas.push_back(cita);
-    std::cout << "Cita asignada para el paciente ID: " << cita.getIdPaciente()
-        << " en la fecha: " << cita.getFecha() << "\n";
+void SistemaHospital::buscarPaciente(const std::string& id) const {
+    for (const auto& paciente : pacientes) {
+        if (paciente.getId() == id) {
+            paciente.mostrarInformacion();
+            return;
+        }
+    }
+    std::cout << "Paciente no encontrado.\n";
 }
 
 // Mostrar todos los datos registrados en el sistema hospitalario
