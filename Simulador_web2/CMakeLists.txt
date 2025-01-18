@@ -20,3 +20,14 @@ add_executable(Simulacion_web2 ${SOURCES})
 # Asegurarse de que el directorio de salida esté configurado correctamente
 set_target_properties(Simulacion_web2 PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# Configuraciones específicas para diferentes sistemas operativos
+if(WIN32)
+    # Configuraciones específicas para Windows
+    # Agregar aquí las configuraciones necesarias para Windows si las hay
+elseif(UNIX)
+    # Configuraciones específicas para Unix/Linux
+    # Agregar aquí las configuraciones necesarias para Unix/Linux si las hay
+    find_package(Threads REQUIRED)
+    target_link_libraries(Simulacion_web2 ${CMAKE_THREAD_LIBS_INIT})
+endif()
