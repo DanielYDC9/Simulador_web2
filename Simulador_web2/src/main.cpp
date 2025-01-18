@@ -32,18 +32,47 @@ int main() {
     SistemaHospital sistema;
     int opcion;
 
-void menuPacientes(SistemaHospital& sistema) {
-    int opcion;
     do {
-        std::cout << "\n=== Gestión de Pacientes ===\n";
-        std::cout << "1. Agregar Paciente\n";
-        std::cout << "2. Mostrar Todos los Pacientes\n";
-        std::cout << "3. Volver al Menú Principal\n";
-        std::cout << "Seleccione una opción: ";
+        mostrarMenuPrincipal();
         std::cin >> opcion;
-        if (std::cin.fail()) {  
+
+        if (std::cin.fail()) {
             std::cout << "Entrada inválida. Intente de nuevo.\n";
             std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+            std::cout << "Entrada inválida. Intente de nuevo.\n";
+    switch (opcion) {
+    case 1: {
+        std::string id, nombre;
+        int edad;
+        std::cin.ignore();
+        std::cout << "Ingrese ID del paciente: ";
+        std::getline(std::cin, id);
+        std::cout << "Ingrese nombre del paciente: ";
+        std::getline(std::cin, nombre);
+        std::cout << "Ingrese edad del paciente: ";
+        std::cin >> edad;
+        sistema.agregarPaciente(id, nombre, edad);
+        break;
+ }
+   case 2: {
+     std::string id, nombre, especialidad;
+     int edad;
+     std::cin.ignore();
+     std::cout << "Ingrese ID del médico: ";
+     std::getline(std::cin, id);
+     std::cout << "Ingrese nombre del médico: ";
+     std::getline(std::cin, nombre);
+     std::cout << "Ingrese especialidad del médico: ";
+     std::getline(std::cin, especialidad);
+     std::cout << "Ingrese edad del médico: ";
+     std::cin >> edad;
+     sistema.agregarMedico(id, nombre, especialidad, edad);
+     break;      
+}        
+        std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }            
