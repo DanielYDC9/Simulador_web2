@@ -1,10 +1,9 @@
-#include <iostream>
-#include "../include/Medico.hpp"
 #include "../include/Paciente.hpp"
+#include <iostream>
+#include <vector>
 
-
-Paciente::Paciente(const std::string& nombre, int id)
-    : nombre(nombre), id(id) {
+Paciente::Paciente(const std::string& id, const std::string& nombre, int edad)
+    : id(id), nombre(nombre),edad(edad) ,  {
 }
 
 int Paciente::getId() const {
@@ -16,5 +15,9 @@ const std::string& Paciente::getNombre() const {
 }
 
 void Paciente::mostrarInformacion() const {
-    std::cout << "Paciente: " << nombre << ", ID: " << id << std::endl;
+    std::cout << "===============================\n";
+    std::cout << "ID: " << id << "\n";
+    std::cout << "Nombre: " << nombre << "\n";
+    std::cout << "Edad: " << edad << " años\n";
+    std::cout << "===============================\n";
 }
