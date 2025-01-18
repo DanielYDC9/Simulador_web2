@@ -23,6 +23,15 @@ void mostrarMenuPrincipal() {
     std::cout << "Seleccione una opción: ";
 }
 
+
+// Función principal
+int main() {
+    // Configurar la salida de la consola para UTF-8
+    std::setlocale(LC_ALL, "es_ES.UTF-8");
+
+    SistemaHospital sistema;
+    int opcion;
+
 void menuPacientes(SistemaHospital& sistema) {
     int opcion;
     do {
