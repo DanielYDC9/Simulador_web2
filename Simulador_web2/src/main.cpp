@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <locale>
 #include "../include/CitaMedica.hpp"
 #include "../include/Paciente.hpp"
 #include "../include/Medico.hpp"
@@ -10,13 +11,15 @@ void mostrarMenuPrincipal() {
     std::cout << "1. Agregar Paciente\n";
     std::cout << "2. Agregar Médico\n";
     std::cout << "3. Asignar Cita\n";
-    std::cout << "4. Editar Paciente\n";
-    std::cout << "5. Editar Médico\n";
-    std::cout << "6. Editar Cita\n";
-    std::cout << "7. Mostrar Pacientes\n";
-    std::cout << "8. Mostrar Médicos\n";
-    std::cout << "9. Mostrar Citas\n";
-    std::cout << "10. Salir\n";    
+    std::cout << "4. Eliminar Paciente\n";
+    std::cout << "5. Eliminar Médico\n";
+    std::cout << "6. Cancelar Cita\n";
+    std::cout << "7. Buscar Paciente\n";
+    std::cout << "8. Buscar Médico\n";
+    std::cout << "9. Mostrar Pacientes\n";
+    std::cout << "10. Mostrar Médicos\n";
+    std::cout << "11. Mostrar Citas\n";
+    std::cout << "12. Salir\n";
     std::cout << "Seleccione una opción: ";
 }
 
