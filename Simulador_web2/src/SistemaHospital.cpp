@@ -108,7 +108,22 @@ void SistemaHospital::cargarDatos() {
         std::string seccion;
 
 
+        while (std::getline(archivo, linea)) {
+            if (linea == "PACIENTES" || linea == "MEDICOS" || linea == "CITAS") {
+                seccion = linea;
+            }
+            else {
+                std::istringstream ss(linea);
+                if (seccion == "PACIENTES") {
+                    std::string id, nombre;
+                    int edad;
+                    std::getline(ss, id, ',');
+                    std::getline(ss, nombre, ',');
+                    ss >> edad;
+                    pacientes.emplace_back(id, nombre, edad);
+                }
 
+        
         archivo.close();
     }
 }
