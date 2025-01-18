@@ -122,7 +122,26 @@ void SistemaHospital::cargarDatos() {
                     ss >> edad;
                     pacientes.emplace_back(id, nombre, edad);
                 }
-
+                else if (seccion == "MEDICOS") {
+                    std::string id, nombre, especialidad;
+                    int edad;
+                    std::getline(ss, id, ',');
+                    std::getline(ss, nombre, ',');
+                    std::getline(ss, especialidad, ',');
+                    ss >> edad;
+                    medicos.emplace_back(id, nombre, especialidad, edad);
+                }
+                else if (seccion == "CITAS") {
+                    std::string idCita, idPaciente, idMedico, fecha, motivo;
+                    std::getline(ss, idCita, ',');
+                    std::getline(ss, idPaciente, ',');
+                    std::getline(ss, idMedico, ',');
+                    std::getline(ss, fecha, ',');
+                    std::getline(ss, motivo, ',');
+                    citas.emplace_back(idCita, idPaciente, idMedico, fecha, motivo);
+                }
+            }
+        }
         
         archivo.close();
     }
