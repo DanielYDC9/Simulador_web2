@@ -29,34 +29,22 @@ void SistemaHospital::buscarPaciente(const std::string& id) const {
     std::cout << "Paciente no encontrado.\n";
 }
 
-// Mostrar todos los datos registrados en el sistema hospitalario
-void SistemaHospital::mostrarDatos() const {
-    // Mostrar pacientes
-    std::cout << "\n=== Pacientes Registrados ===\n";
-    if (pacientes.empty()) {
-        std::cout << "No hay pacientes registrados.\n";
-    }
-    else {
-        for (const auto& paciente : pacientes) {
-            paciente.mostrarInformacion();
-        }
-    }
 
-    // Mostrar médicos
-    std::cout << "\n=== Médicos Registrados ===\n";
-    if (medicos.empty()) {
-        std::cout << "No hay médicos registrados.\n";
+void SistemaHospital::mostrarPacientes() const {
+    for (const auto& paciente : pacientes) {
+        paciente.mostrarInformacion();
     }
-    else {
-        for (const auto& medico : medicos) {
-            medico.mostrarInformacion();
-        }
-    }
+}
 
-    // Mostrar citas
-    std::cout << "\n=== Citas Programadas ===\n";
-    if (citas.empty()) {
-        std::cout << "No hay citas programadas.\n";
+void SistemaHospital::agregarMedico(const std::string& id, const std::string& nombre, const std::string& especialidad, int edad) {
+    medicos.emplace_back(id, nombre, especialidad, edad);
+}
+
+void SistemaHospital::eliminarMedico(const std::string& id) {
+    medicos.erase(std::remove_if(medicos.begin(), medicos.end(),
+        [&id](const Medico& medico) { return medico.getId() == id; }), medicos.end());
+}
+
     }
     else {
         for (const auto& cita : citas) {
