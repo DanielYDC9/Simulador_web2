@@ -60,3 +60,18 @@ void SistemaHospital::mostrarMedicos() const {
         medico.mostrarInformacion();
     }
 }
+
+void SistemaHospital::agregarCita(const std::string& idCita, const std::string& idPaciente, const std::string& idMedico, const std::string& fecha, const std::string& motivo) {
+    citas.emplace_back(idCita, idPaciente, idMedico, fecha, motivo);
+}
+
+void SistemaHospital::cancelarCita(const std::string& idCita) {
+    citas.erase(std::remove_if(citas.begin(), citas.end(),
+        [&idCita](const CitaMedica& cita) { return cita.getIdCita() == idCita; }), citas.end());
+}
+
+void SistemaHospital::mostrarCitas() const {
+    for (const auto& cita : citas) {
+        cita.mostrarInformacion();
+    }
+}
