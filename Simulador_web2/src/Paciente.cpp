@@ -33,3 +33,29 @@ void Paciente::mostrarHistorial() const {
         std::cout << "- " << historialClinico[i] << "\n";
     }
 }
+
+void eliminarPacientePorId(std::vector<Paciente>& pacientes, const std::string& idBuscado) {
+    for (int i = 0; i < pacientes.size(); i++) {
+        if (pacientes[i].getId() == idBuscado) {
+            pacientes.erase(pacientes.begin() + i);
+            std::cout << "Paciente con ID " << idBuscado << " eliminado correctamente.\n";
+            return;
+        }
+    }
+    std::cout << "No se encontró ningún paciente con el ID especificado.\n";
+}
+
+void buscarPacientePorId(const std::vector<Paciente>& pacientes, const std::string& idBuscado) {
+    bool encontrado = false;
+    for (int i = 0; i < pacientes.size(); i++) {
+        if (pacientes[i].getId() == idBuscado) {
+            std::cout << "Paciente encontrado:\n";
+            pacientes[i].mostrarInformacion();
+            encontrado = true;
+            break;
+        }
+    }
+    if (!encontrado) {
+        std::cout << "No se encontró ningún paciente con el ID especificado.\n";
+    }
+}
