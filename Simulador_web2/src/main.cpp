@@ -72,7 +72,55 @@ int main() {
      sistema.agregarMedico(id, nombre, especialidad, edad);
      break;      
 }        
-        std::cin.clear();
+ case 3: {
+     std::string idCita, idPaciente, idMedico, fecha, motivo;
+     std::cin.ignore();
+     std::cout << "Ingrese ID de la cita: ";
+     std::getline(std::cin, idCita);
+     std::cout << "Ingrese ID del paciente: ";
+     std::getline(std::cin, idPaciente);
+     std::cout << "Ingrese ID del médico: ";
+     std::getline(std::cin, idMedico);
+     std::cout << "Ingrese fecha de la cita (YYYY-MM-DD): ";
+     std::getline(std::cin, fecha);
+     std::cout << "Ingrese motivo de la cita: ";
+     std::getline(std::cin, motivo);
+     sistema.agregarCita(idCita, idPaciente, idMedico, fecha, motivo);
+     break;
+ }
+ case 4: {
+     std::string id;
+     std::cin.ignore();
+     std::cout << "Ingrese ID del paciente a eliminar: ";
+     std::getline(std::cin, id);
+     sistema.eliminarPaciente(id);
+     break;
+ }
+ case 5: {
+     std::string id;
+     std::cin.ignore();
+     std::cout << "Ingrese ID del médico a eliminar: ";
+     std::getline(std::cin, id);
+     sistema.eliminarMedico(id);
+     break;
+ }
+  case 6: {
+     std::string idCita;
+     std::cin.ignore();
+     std::cout << "Ingrese ID de la cita a cancelar: ";
+     std::getline(std::cin, idCita);
+     sistema.cancelarCita(idCita);
+     break;
+ }
+       
+
+    } while (opcion != 12);
+
+    return 0;
+}
+    
+     
+       std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }            
