@@ -14,11 +14,9 @@ void SistemaHospital::agregarPaciente(const std::string& id, const std::string& 
     pacientes.emplace_back(id, nombre, edad);
 }
 
-// Agregar un médico al sistema
-void SistemaHospital::agregarMedico(const Medico& medico) {
-    medicos.push_back(medico);
-    std::cout << "Médico agregado: " << medico.getNombre()
-        << " - Especialidad: " << medico.getEspecialidad() << "\n";
+void SistemaHospital::eliminarPaciente(const std::string& id) {
+pacientes.erase(std::remove_if(pacientes.begin(), pacientes.end(),
+    [&id](const Paciente& paciente) { return paciente.getId() == id; }), pacientes.end());
 }
 
 // Asignar una cita médica al sistema
