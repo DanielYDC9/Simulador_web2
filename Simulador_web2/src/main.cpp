@@ -112,136 +112,41 @@ int main() {
      sistema.cancelarCita(idCita);
      break;
  }
-       
+ case 7: {
+            std::string id;
+            std::cin.ignore();
+            std::cout << "Ingrese ID del paciente a buscar: ";
+            std::getline(std::cin, id);
+            sistema.buscarPaciente(id);
+            break;
+        }
+        case 8: {
+            std::string id;
+            std::cin.ignore();
+            std::cout << "Ingrese ID del médico a buscar: ";
+            std::getline(std::cin, id);
+            sistema.buscarMedico(id);
+            break;
+        }
+        case 9:
+            sistema.mostrarPacientes();
+            break;
+        case 10:
+            sistema.mostrarMedicos();
+            break;
+        case 11:
+            sistema.mostrarCitas();
+            break;
+        case 12:
+            std::cout << "Saliendo del sistema...\n";
+            break;
+        default:
+            std::cout << "Opción inválida. Intente de nuevo.\n";
+            break;
+        }       
 
     } while (opcion != 12);
 
     return 0;
 }
     
-     
-       std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }            
-
-        switch (opcion) {
-        case 1:
-            sistema.agregarPaciente();
-            break;
-        case 2:
-            sistema.mostrarPacientes();
-            break;
-        case 3:
-            std::cout << "Volviendo al menú principal...\n";
-            break;
-        default:
-            std::cout << "Opción no válida. Intente nuevamente.\n";
-            break;
-        }
-    } while (opcion != 3);
-}        
-        
-
-
-void menuMedicos(SistemaHospital& sistema) {
-    int opcion;
-    do {
-
-        std::cout << "\n=== Gestión de Médicos ===\n";
-        std::cout << "1. Agregar Médico\n";
-        std::cout << "2. Mostrar Todos los Médicos\n";
-        std::cout << "3. Volver al Menú Principal\n";
-        std::cout << "Seleccione una opción: ";
-        std::cin  >> opcion;
-
-        if (std::cin.fail()) {
-        std::cout << "Entrada inválida. Intente de nuevo.\n";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        continue;
-        }
-        switch (opcion) {
-        case 1:
-            sistema.agregarMedico();
-            break;
-        case 2:
-            sistema.mostrarMedicos();
-            break;
-        case 3:
-            std::cout << "Volviendo al menú principal...\n";
-            break;
-        default:
-            std::cout << "Opción no válida. Intente nuevamente.\n";
-            break;
-        }
-    } while (opcion != 3); 
-}
-
-void menuCitas(SistemaHospital& sistema) {
-    int opcion;
-    do {
-        std::cout << "\n=== Gestión de Citas ===\n";
-        std::cout << "1. Asignar Cita Médica\n";
-        std::cout << "2. Mostrar Todas las Citas\n";
-        std::cout << "3. Volver al Menú Principal\n";
-        std::cout << "Seleccione una opción: ";
-        std::cin >> opcion;
-        if (std::cin.fail()) {
-            std::cout << "Entrada inválida. Intente de nuevo.\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
-
-        switch (opcion) {
-        case 1:
-            sistema.asignarCita();
-            break;
-        case 2:
-            sistema.mostrarCitas();
-            break;
-        case 3:
-            std::cout << "Volviendo al menú principal...\n";
-            break;
-        default:
-            std::cout << "Opción no válida. Intente nuevamente.\n";
-            break;
-        }
-    } while (opcion != 3);
-}
-
-
-int main() {
-    SistemaHospital sistema;
-    int opcion;
-
-    do {
-        mostrarMenuPrincipal();
-        std::cin >> opcion;
-
-        if (std::cin.fail()) {
-            std::cout << "Entrada inválida. Intente de nuevo.\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
-
-        switch (opcion) {
-        case 1: agregarPaciente(sistema); break;
-        case 2: agregarMedico(sistema); break;
-        case 3: asignarCita(sistema); break;
-        case 4: sistema.mostrarDatos(); break;
-        case 5: sistema.editarMedico(); break;
-        case 6: sistema.editarCita(); break;
-        case 7: sistema.mostrarPacientes(); break;
-        case 8: sistema.mostrarMedicos(); break;
-        case 9: sistema.mostrarCitas(); break;    
-        case 10: std::cout << "Saliendo...\n"; break;
-        default: std::cout << "Opción no válida. Intentelo de nuevo\n";
-        }
-    } while (opcion != 10);
-
-    return 0;
-}
-
