@@ -100,3 +100,15 @@ void SistemaHospital::guardarDatos() const {
         archivo.close();
     }
 }
+
+void SistemaHospital::cargarDatos() {
+    std::ifstream archivo("datos.txt");
+    if (archivo.is_open()) {
+        std::string linea;
+        std::string seccion;
+
+
+
+        archivo.close();
+    }
+}
