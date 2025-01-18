@@ -75,3 +75,28 @@ void SistemaHospital::mostrarCitas() const {
         cita.mostrarInformacion();
     }
 }
+
+void SistemaHospital::guardarDatos() const {
+    std::ofstream archivo("datos.txt");
+    if (archivo.is_open()) {
+        // Guardar pacientes
+        archivo << "PACIENTES\n";
+        for (const auto& paciente : pacientes) {
+            archivo << paciente.getId() << "," << paciente.getNombre() << "," << paciente.getEdad() << "\n";
+        }
+
+        // Guardar médicos
+        archivo << "MEDICOS\n";
+        for (const auto& medico : medicos) {
+            archivo << medico.getId() << "," << medico.getNombre() << "," << medico.getEspecialidad() << "," << medico.getEdad() << "\n";
+        }
+
+        // Guardar citas
+        archivo << "CITAS\n";
+        for (const auto& cita : citas) {
+            archivo << cita.getIdCita() << "," << cita.getIdPaciente() << "," << cita.getIdMedico() << "," << cita.getFecha() << "," << cita.getMotivo() << "\n";
+        }
+
+        archivo.close();
+    }
+}
