@@ -45,10 +45,18 @@ void SistemaHospital::eliminarMedico(const std::string& id) {
         [&id](const Medico& medico) { return medico.getId() == id; }), medicos.end());
 }
 
-    }
-    else {
-        for (const auto& cita : citas) {
-            cita.mostrarInformacion();
+   void SistemaHospital::buscarMedico(const std::string& id) const {
+    for (const auto& medico : medicos) {
+        if (medico.getId() == id) {
+            medico.mostrarInformacion();
+            return;
         }
+    }
+    std::cout << "Médico no encontrado.\n";
+}
+
+void SistemaHospital::mostrarMedicos() const {
+    for (const auto& medico : medicos) {
+        medico.mostrarInformacion();
     }
 }
