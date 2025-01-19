@@ -1,33 +1,31 @@
-# Establecer la versión mínima de CMake requerida
 cmake_minimum_required(VERSION 3.10)
 
-# Definir el nombre del proyecto
-project(Simulacion_web2)
+# Nombre del proyecto
+project(Simulador_web2 LANGUAGES CXX)
 
 # Establecer el estándar de C++
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Incluir los directorios de cabeceras
+# Incluir directorios
 include_directories(include)
 
-# Buscar todos los archivos .cpp en la carpeta src
-file(GLOB SOURCES "src/*.cpp")
+# Añadir los archivos fuente
+add_executable(Simulador_web2
+    src/main.cpp
+    src/CitaMedica.cpp
+    src/Paciente.cpp
+    src/Medico.cpp
+    src/SistemaHospital.cpp
+)
 
-# Crear el ejecutable del proyecto
-add_executable(Simulacion_web2 ${SOURCES})
-
-# Asegurarse de que el directorio de salida esté configurado correctamente
-set_target_properties(Simulacion_web2 PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
-# Configuraciones específicas para diferentes sistemas operativos
-if(WIN32)
-    # Configuraciones específicas para Windows
-    # Agregar aquí las configuraciones necesarias para Windows si las hay
-elseif(UNIX)
-    # Configuraciones específicas para Unix/Linux
-    # Agregar aquí las configuraciones necesarias para Unix/Linux si las hay
-    find_package(Threads REQUIRED)
-    target_link_libraries(Simulacion_web2 ${CMAKE_THREAD_LIBS_INIT})
+# Especificar el compilador
+if(MSVC)
+    set(CMAKE_CXX_COMPILER "cl.exe")
+else()
+    set(CMAKE_CXX_COMPILER "g++")
 endif()
+
+# Configuración de salida
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
