@@ -33,6 +33,6 @@ private:
     std::vector<Paciente> pacientes;  
     std::vector<Medico> medicos;      
     std::vector<CitaMedica> citas;
-
+};
 
 #endif
