@@ -54,6 +54,7 @@ int main() {
         std::getline(std::cin, nombre);
         std::cout << "Ingrese edad del paciente: ";
         std::cin >> edad;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         sistema.agregarPaciente(id, nombre, edad);
         break;
  }
@@ -69,6 +70,7 @@ int main() {
      std::getline(std::cin, especialidad);
      std::cout << "Ingrese edad del médico: ";
      std::cin >> edad;
+       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
      sistema.agregarMedico(id, nombre, especialidad, edad);
      break;      
 }        
