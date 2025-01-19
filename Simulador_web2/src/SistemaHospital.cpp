@@ -1,6 +1,7 @@
 #include "../include/SistemaHospital.hpp"
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 SistemaHospital::SistemaHospital() {
     cargarDatos();
