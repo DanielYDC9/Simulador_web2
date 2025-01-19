@@ -1,7 +1,6 @@
 #include "../include/CitaMedica.hpp"
 #include <iostream>
 
-CitaMedica::CitaMedica(
 CitaMedica::CitaMedica(const std::string& idCita, const std::string& idPaciente, const std::string& idMedico, const std::string& fecha, const std::string& motivo)
     : idCita(idCita),idPaciente(idPaciente), idMedico(idMedico), fecha(fecha), motivo(motivo) {
 }
