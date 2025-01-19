@@ -3,7 +3,7 @@
 #include <vector>
 
 Paciente::Paciente(const std::string& id, const std::string& nombre, int edad)
-    : id(id), nombre(nombre),edad(edad) ,  {
+    : id(id), nombre(nombre), edad(edad) { 
 }
 
 std::string Paciente::getId() const { return id; }
