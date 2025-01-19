@@ -10,9 +10,7 @@ std::string CitaMedica::getIdPaciente() const { return idPaciente; }
 std::string CitaMedica::getIdMedico() const { return idMedico; }
 std::string CitaMedica::getFecha() const { return fecha; }
 std::string CitaMedica::getMotivo() const { return motivo; }
-int CitaMedica::getIdPaciente() const {
-    return idPaciente;
-}
+
 void CitaMedica::setFecha(const std::string& nuevaFecha) {
     fecha = nuevaFecha;
 }
