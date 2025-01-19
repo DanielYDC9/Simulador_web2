@@ -6,10 +6,10 @@ Medico::Medico(const std::string& id, const std::string& nombre, const std::stri
 }
 
 std::string Medico::getId() const { return id; }
-std::string& Medico::getNombre() const { return nombre; }
-std::string& Medico::getEspecialidad() const { return especialidad; }
+std::string Medico::getNombre() const { return nombre; }
+std::string Medico::getEspecialidad() const { return especialidad; }
 int Medico::getEdad() const { return edad; }
-}
+
 void Medico::setNombre(const std::string& nuevoNombre) {
     nombre = nuevoNombre;
 }
@@ -20,6 +20,8 @@ void Medico::setEspecialidad(const std::string& nuevaEspecialidad) {
 
 void Medico::setEdad(int nuevaEdad) {
     edad = nuevaEdad;
+}
+
 void Medico::mostrarInformacion() const {
     std::cout << "===============================\n";
     std::cout << "ID: " << id << "\n";
