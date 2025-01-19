@@ -1,6 +1,7 @@
 #ifndef MEDICO_HPP
 #define MEDICO_HPP
 
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -16,7 +17,7 @@ public:
 
     std::string getId() const;
     std::string getNombre() const;
-    std::string& getEspecialidad() const;
+    std::string getEspecialidad() const;
     int getEdad() const;
 
     void setNombre(const std::string& nuevoNombre);
@@ -30,7 +31,5 @@ public:
     void eliminarMedicoPorId(std::vector<Medico>& medicos, const std::string& idBuscado);
     void buscarMedicoPorId(const std::vector<Medico>& medicos, const std::string& idBuscado);
 };
-
-
 
 #endif
